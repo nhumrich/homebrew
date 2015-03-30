@@ -1,7 +1,7 @@
 class AwsElasticbeanstalk < Formula
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-reference-eb.html"
-  url "https://pypi.python.org/packages/source/a/awsebcli/awsebcli-3.1.2.tar.gz"
-  sha1 "d64147b381574880b2f65e676b6e1b74a378d9cf"
+  url "https://pypi.python.org/packages/source/a/awsebcli/awsebcli-3.2.tar.gz"
+  sha1 "599f3ad277134e8fe061e23aa5e1cbe0b6844311"
 
   bottle do
     cellar :any
@@ -49,14 +49,6 @@ class AwsElasticbeanstalk < Formula
     bash_completion.install libexec/"bin/eb_completion.bash"
     bin.install Dir[libexec/"bin/{eb,jp}"]
     bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
-  end
-
-  def caveats; <<-EOS.undent
-      Before you can use these tools you must export some variables to your $SHELL.
-        export AWS_ACCESS_KEY="<Your AWS Access ID>"
-        export AWS_SECRET_KEY="<Your AWS Secret Key>"
-        export AWS_CREDENTIAL_FILE="<Path to the credentials file>"
-    EOS
   end
 
   test do
